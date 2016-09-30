@@ -16,11 +16,11 @@
     </dependency>
   </dependencies>
 <distributionManagement>
-    <snapshotRepository>
-        <id>snapshots</id>
-        <name>owner-HP-Notebook-snapshots</name>
-        <url>http://localhost:8081/artifactory/libs-snapshot-local</url>
-    </snapshotRepository>
+    <repository>
+        <id>central</id>
+        <name>devops-training-releases</name>
+        <url>http://localhost:8081/artifactory/libs-release-local</url>
+    </repository>
 </distributionManagement>
   <build>
     <finalName>example</finalName>
