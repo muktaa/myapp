@@ -37,7 +37,7 @@
             <configuration>
                 <type>runtime</type>
                 <properties>
-                    <cargo.hostname>192.168.0.26</cargo.hostname>
+                    <cargo.hostname>192.168.0.12</cargo.hostname>
                     <cargo.servlet.port>8080</cargo.servlet.port>
                     <cargo.tomcat.manager.url>http://${cargo.hostname}:${cargo.servlet.port}/manager</cargo.tomcat.manager.url>
                     <cargo.remote.username>tomcat</cargo.remote.username>
