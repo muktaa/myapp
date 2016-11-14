@@ -1,3 +1,2 @@
 # myapp
-sg
 sdf
