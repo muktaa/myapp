@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>example</groupId>
-  <artifactId>example</artifactId>
+  <groupId>example1</groupId>
+  <artifactId>example1</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>example Maven Webapp</name>
@@ -23,6 +23,36 @@
     </snapshotRepository>
 </distributionManagement>
   <build>
-    <finalName>example</finalName>
+    <finalName>example1</finalName>
+    <plugins>
+    <plugin>
+        <groupId>org.codehaus.cargo</groupId>
+        <artifactId>cargo-maven2-plugin</artifactId>
+        <version>1.2.0</version>
+        <configuration>
+            <container>
+                <containerId>tomcat7x</containerId>
+                <type>remote</type>
+            </container>
+            <configuration>
+                <type>runtime</type>
+                <properties>
+                    <cargo.hostname>localhost</cargo.hostname>
+                    <cargo.servlet.port>8080</cargo.servlet.port>
+                    <cargo.tomcat.manager.url>http://${cargo.hostname}:${cargo.servlet.port}/manager</cargo.tomcat.manager.url>
+                    <cargo.remote.username>tomcat</cargo.remote.username>
+                    <cargo.remote.password>s3cret</cargo.remote.password>
+                </properties>
+            </configuration>
+            <deployables>
+                <deployable>
+                    <groupId>${project.groupId}</groupId>
+                    <artifactId>${project.artifactId}</artifactId>
+                    <type>${project.packaging}</type>
+                </deployable>
+            </deployables>
+        </configuration>
+    </plugin>
+    </plugins>
   </build>
 </project>
